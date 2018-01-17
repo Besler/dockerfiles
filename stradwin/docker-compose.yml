@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - ./Models:/var/Models/
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      #- DISPLAY=/private/tmp/com.apple.launchd.dfgVsRrfXl/org.macosforge.xquartz:0
+      - DISPLAY=10.14.106.146:0
