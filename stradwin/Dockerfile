@@ -13,7 +13,6 @@ MAINTAINER Bryce Besler
 
 # Stradwin file locations
 ENV STRADWIN_FILE stradwin5.3_for_linux_64bit.tar.gz
-#ENV STRADWIN_URL http://mi.eng.cam.ac.uk/~rwp/stradwin/stradwin5.3_for_linux_64bit.tar.gz
 ENV STRADWIN_URL http://mi.eng.cam.ac.uk/~rwp/stradwin/${STRADWIN_FILE}
 
 # Setup environment
@@ -28,7 +27,7 @@ RUN apt-get install -y wget
 RUN apt-get install -y v4l-utils
 RUN apt-get install -y mesa-utils
 RUN apt-get install -y libglu1-mesa
-#RUN apt-get install -y
+RUN apt-get install -y xserver-xorg-video-all
 
 # Create directory to map files
 RUN mkdir -p /var/Models/
@@ -39,11 +38,11 @@ RUN wget $STRADWIN_URL
 RUN tar -xvzf $STRADWIN_FILE -C /opt/stradwin/
 
 # Run and setup
-#CMD [ "/bin/bash", "/opt/stradwin/stradwin5.3_for_linux_64bit/stradwin" ]
-#CMD [ "/opt/stradwin/stradwin5.3_for_linux_64bit/stradwin_x86-64" ]
+CMD [ "/bin/bash", "/opt/stradwin/stradwin5.3_for_linux_64bit/stradwin" ]
+CMD [ "/opt/stradwin/stradwin5.3_for_linux_64bit/stradwin_x86-64" ]
 #ENTRYPOINT [ "/opt/stradwin/stradwin5.3_for_linux_64bit/stradwin" ]
 #CMD [ "/bin/bash" ]
 
 # Test program
-CMD [ "glxgears" ]
+#CMD [ "glxgears" ]
 

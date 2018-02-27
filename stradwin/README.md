@@ -1,8 +1,13 @@
 # stradwin
-This docker file is a work in progress
+This docker file is a work in progress. It *should* run on OSX now...
 
-## Enter container interactively
 ```bash
-docker run -i -t stradwin_web:latest /bin/bash
+# Build container
+./build.sh
+
+# Run container
+./run.sh
 ```
+
+If you want to work with some files, you need to move them to teh `Models` directory.
 
